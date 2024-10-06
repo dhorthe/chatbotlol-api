@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootTest
 public class ListChampionUseCaseTest {
@@ -21,9 +22,9 @@ public class ListChampionUseCaseTest {
     }
 
     @Test
-    public void testListChampions2() {
-        List<Champion> champions = listChampionUseCase.findAll();
+    public void testFindChampionById() {
+        Optional<Champion> champion = listChampionUseCase.findById(1L);
 
-        Assertions.assertEquals(11, champions.size());
+        Assertions.assertNotNull(champion);
     }
 }
